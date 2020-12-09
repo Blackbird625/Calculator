@@ -14,18 +14,14 @@ steps:
   inputs:
     versionSpec: '5.8.x'
 
-- task: NuGetCommand@2
-  inputs:
-    command: 'restore'
-    restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
 
-- task: DotNetCoreCLI@2
+- task: VSBuild@1
   inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
-  displayName: 'dotnet build $(buildConfiguration)'
+    solution: '**\*.sln'
+    platform: 'Any CPU'
+    configuration: 'Release'
+    restoreNugetPackages: true
+    msbuildArchitecture: 'x64'
 
 - task: DotNetCoreCLI@2
   inputs:
