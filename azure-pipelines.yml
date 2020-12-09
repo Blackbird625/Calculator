@@ -10,6 +10,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '5.8.x'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
