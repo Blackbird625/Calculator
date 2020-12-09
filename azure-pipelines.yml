@@ -13,12 +13,14 @@ steps:
 - task: NuGetToolInstaller@1
   inputs:
     versionSpec: '5.8.x'
+  displayName: 'Install latest NuGet Exe version'
 
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
+  displayName: 'NuGet Restore'
 
 - task: VSBuild@1
   inputs:
@@ -27,8 +29,11 @@ steps:
     configuration: 'Release'
     restoreNugetPackages: false
     msbuildArchitecture: 'x64'
+  displayName: 'Build solution'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
     projects: '**/*.Tests.csproj'
+    testRunTitle: 'Calculator Tests'
+  displayName: 'Run xUnit Test'
