@@ -25,7 +25,7 @@ steps:
     solution: '**\*.sln'
     platform: 'Any CPU'
     configuration: 'Release'
-    restoreNugetPackages: true
+    restoreNugetPackages: false
     msbuildArchitecture: 'x64'
 
 - task: DotNetCoreCLI@2
