@@ -10,12 +10,182 @@
 		<viewModels:CalculatorViewModel />
 	</ContentPage.BindingContext>
 
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Digit" TargetType="Button">
+				<Setter Property="TextColor" Value="White" />
+				<Setter Property="Background" Value="Black" />
+				<Setter Property="FontSize" Value="25" />
+			</Style>
+			<Style x:Key="Operation" TargetType="Button">
+				<Setter Property="TextColor" Value="White" />
+				<Setter Property="Background" Value="" />
+				<Setter Property="FontSize" Value="25" />
+			</Style>
+			<Style x:Key="Brackets" TargetType="Button">
+				<Setter Property="TextColor" Value="White" />
+				<Setter Property="Background" Value="Blue" />
+				<Setter Property="FontSize" Value="25" />
+			</Style>
+			<Style x:Key="Equals" TargetType="Button">
+				<Setter Property="TextColor" Value="White" />
+				<Setter Property="Background" Value="green" />
+				<Setter Property="FontSize" Value="25" />
+			</Style>
+			<Style x:Key="Clear" TargetType="Button">
+				<Setter Property="TextColor" Value="White" />
+				<Setter Property="Background" Value="Red" />
+				<Setter Property="FontSize" Value="25" />
+			</Style>
+			<Style x:Key="Separator" TargetType="Button">
+				<Setter Property="TextColor" Value="White" />
+				<Setter Property="Background" Value="DimGray" />
+				<Setter Property="FontSize" Value="25" />
+			</Style>
+			<Style x:Key="Expression" TargetType="Label">
+				<Setter Property="FontSize" Value="25" />
+			</Style>
+			<Style x:Key="EntryValue" TargetType="Label">
+				<Setter Property="FontSize" Value="35" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
 	<ContentPage.Content>
-		<StackLayout>
+		<Grid Margin="5">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
 			<Label
-				HorizontalOptions="CenterAndExpand"
-				Text="Welcome to Xamarin.Forms!"
-				VerticalOptions="CenterAndExpand" />
-		</StackLayout>
+				Grid.Row="0"
+				Grid.RowSpan="4"
+				Grid.ColumnSpan="4"
+				HorizontalTextAlignment="End"
+				Style="{StaticResource Expression}"
+				VerticalTextAlignment="End" />
+			<Label
+				Grid.Row="4"
+				Grid.RowSpan="2"
+				Grid.Column="0"
+				Grid.ColumnSpan="4"
+				HorizontalTextAlignment="End"
+				Style="{StaticResource EntryValue}" />
+			<Button
+				Grid.Row="6"
+				Grid.Column="0"
+				Style="{StaticResource Clear}"
+				Text="C" />
+			<Button
+				Grid.Row="6"
+				Grid.Column="1"
+				Style="{StaticResource Brackets}"
+				Text="(" />
+			<Button
+				Grid.Row="6"
+				Grid.Column="2"
+				Style="{StaticResource Brackets}"
+				Text=")" />
+			<Button
+				Grid.Row="6"
+				Grid.Column="3"
+				Style="{StaticResource Operation}"
+				Text="/" />
+			<Button
+				Grid.Row="7"
+				Grid.Column="0"
+				Style="{StaticResource Digit}"
+				Text="7" />
+			<Button
+				Grid.Row="7"
+				Grid.Column="1"
+				Style="{StaticResource Digit}"
+				Text="8" />
+			<Button
+				Grid.Row="7"
+				Grid.Column="2"
+				Style="{StaticResource Digit}"
+				Text="9" />
+			<Button
+				Grid.Row="7"
+				Grid.Column="3"
+				Style="{StaticResource Operation}"
+				Text="*" />
+			<Button
+				Grid.Row="8"
+				Grid.Column="0"
+				Style="{StaticResource Digit}"
+				Text="4" />
+			<Button
+				Grid.Row="8"
+				Grid.Column="1"
+				Style="{StaticResource Digit}"
+				Text="5" />
+			<Button
+				Grid.Row="8"
+				Grid.Column="2"
+				Style="{StaticResource Digit}"
+				Text="6" />
+			<Button
+				Grid.Row="8"
+				Grid.Column="3"
+				Style="{StaticResource Operation}"
+				Text="-" />
+			<Button
+				Grid.Row="9"
+				Grid.Column="0"
+				Style="{StaticResource Digit}"
+				Text="1" />
+			<Button
+				Grid.Row="9"
+				Grid.Column="1"
+				Style="{StaticResource Digit}"
+				Text="2" />
+			<Button
+				Grid.Row="9"
+				Grid.Column="2"
+				Style="{StaticResource Digit}"
+				Text="3" />
+			<Button
+				Grid.Row="9"
+				Grid.Column="3"
+				Style="{StaticResource Operation}"
+				Text="+" />
+			<Button
+				Grid.Row="10"
+				Grid.Column="0"
+				Style="{StaticResource Clear}"
+				Text="CE" />
+			<Button
+				Grid.Row="10"
+				Grid.Column="1"
+				Style="{StaticResource Digit}"
+				Text="0" />
+			<Button
+				Grid.Row="10"
+				Grid.Column="2"
+				Style="{StaticResource Separator}"
+				Text="," />
+			<Button
+				Grid.Row="10"
+				Grid.Column="3"
+				Style="{StaticResource Equals}"
+				Text="=" />
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>
