@@ -44,9 +44,12 @@
 			</Style>
 			<Style x:Key="Expression" TargetType="Label">
 				<Setter Property="FontSize" Value="25" />
+				<Setter Property="HorizontalTextAlignment" Value="End" />
+				<Setter Property="VerticalTextAlignment" Value="End" />
 			</Style>
 			<Style x:Key="EntryValue" TargetType="Label">
 				<Setter Property="FontSize" Value="35" />
+				<Setter Property="HorizontalTextAlignment" Value="End" />
 			</Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
@@ -76,15 +79,12 @@
 				Grid.Row="0"
 				Grid.RowSpan="4"
 				Grid.ColumnSpan="4"
-				HorizontalTextAlignment="End"
-				Style="{StaticResource Expression}"
-				VerticalTextAlignment="End" />
+				Style="{StaticResource Expression}" />
 			<Label
 				Grid.Row="4"
 				Grid.RowSpan="2"
 				Grid.Column="0"
 				Grid.ColumnSpan="4"
-				HorizontalTextAlignment="End"
 				Style="{StaticResource EntryValue}" />
 			<Button
 				Grid.Row="6"

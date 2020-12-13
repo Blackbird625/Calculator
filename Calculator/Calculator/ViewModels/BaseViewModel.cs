@@ -1,24 +1,12 @@
-﻿using Calculator.Models;
-using Calculator.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Xamarin.Forms;
 
 namespace Calculator.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{
-		public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-
-		private bool _isBusy;
-		public bool IsBusy
-		{
-			get => _isBusy;
-			set => SetProperty(ref _isBusy, value);
-		}
-
 		private string _title = string.Empty;
 		public string Title
 		{
