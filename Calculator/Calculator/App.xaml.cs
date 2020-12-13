@@ -4,6 +4,7 @@ namespace Calculator
 {
 	public partial class App : Application
 	{
+		public static readonly char DecimalSeparator = '-';
 
 		public App()
 		{

@@ -42,6 +42,11 @@
 				<Setter Property="Background" Value="DimGray" />
 				<Setter Property="FontSize" Value="25" />
 			</Style>
+			<Style x:Key="InverseSign" TargetType="Button">
+				<Setter Property="TextColor" Value="White" />
+				<Setter Property="Background" Value="DimGray" />
+				<Setter Property="FontSize" Value="25" />
+			</Style>
 			<Style x:Key="Expression" TargetType="Label">
 				<Setter Property="FontSize" Value="25" />
 				<Setter Property="HorizontalTextAlignment" Value="End" />
@@ -76,11 +81,13 @@
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 			<Label
+				x:Name="Expression"
 				Grid.Row="0"
 				Grid.RowSpan="4"
 				Grid.ColumnSpan="4"
 				Style="{StaticResource Expression}" />
 			<Label
+				x:Name="EntryValue"
 				Grid.Row="4"
 				Grid.RowSpan="2"
 				Grid.Column="0"
@@ -89,16 +96,19 @@
 			<Button
 				Grid.Row="6"
 				Grid.Column="0"
+				Clicked="ClearEntryValue_OnClicked"
 				Style="{StaticResource Clear}"
-				Text="C" />
+				Text="CE/C" />
 			<Button
 				Grid.Row="6"
 				Grid.Column="1"
+				Clicked="OpenBrace_OnClicked"
 				Style="{StaticResource Brackets}"
 				Text="(" />
 			<Button
 				Grid.Row="6"
 				Grid.Column="2"
+				Clicked="CloseBrace_OnClicked"
 				Style="{StaticResource Brackets}"
 				Text=")" />
 			<Button
@@ -149,41 +159,49 @@
 			<Button
 				Grid.Row="9"
 				Grid.Column="0"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="1" />
 			<Button
 				Grid.Row="9"
 				Grid.Column="1"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="2" />
 			<Button
 				Grid.Row="9"
 				Grid.Column="2"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="3" />
 			<Button
 				Grid.Row="9"
 				Grid.Column="3"
+				Clicked="Operation_OnClicked"
 				Style="{StaticResource Operation}"
 				Text="+" />
 			<Button
 				Grid.Row="10"
 				Grid.Column="0"
-				Style="{StaticResource Clear}"
-				Text="CE" />
+				Clicked="InverseSign_OnClicked"
+				Style="{StaticResource InverseSign}"
+				Text="+/-" />
 			<Button
 				Grid.Row="10"
 				Grid.Column="1"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="0" />
 			<Button
 				Grid.Row="10"
 				Grid.Column="2"
+				Clicked="DecimalSeparator_OnClicked"
 				Style="{StaticResource Separator}"
 				Text="," />
 			<Button
 				Grid.Row="10"
 				Grid.Column="3"
+				Clicked="EvaluateExpression_OnClick"
 				Style="{StaticResource Equals}"
 				Text="=" />
 		</Grid>

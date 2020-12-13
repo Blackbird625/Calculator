@@ -2,7 +2,7 @@
 
 namespace Calculator.Services
 {
-	public class MathExpression
+	public static class MathExpression
 	{
 		public static double Parse(string expression)
 		{
