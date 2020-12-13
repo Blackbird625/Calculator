@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Calculator.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -74,7 +75,7 @@ namespace Calculator.Views
 				EntryValue.Text += button.Text;
 				Expression.Text = EntryValue.Text;
 				EntryValue.Text = MathExpression.TryParse(expression, out var result)
-					? result.ToString()
+					? result.ToString(CultureInfo.InvariantCulture)
 					: "Invalid expression";
 			}
 		}
