@@ -1,10 +1,13 @@
-﻿namespace Calculator.Services
+﻿using Calculator.Models;
+
+namespace Calculator.Services
 {
 	public class MathExpression
 	{
 		public static double Parse(string expression)
 		{
-			return 0.0;
+			var parser = new SimpleMathParserForDouble();
+			return parser.Execute(parser.TokenizeExpression(expression), null);
 		}
 
 		public static bool TryParse(string expression, out double result)
