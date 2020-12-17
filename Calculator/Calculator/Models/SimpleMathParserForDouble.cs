@@ -65,9 +65,7 @@ namespace Calculator.Models
 
 		public override bool IsNoise(string input) => false;
 
-		public List<string> TokenizeExpression(string expression) => SplitToTokens(RemoveWhiteSpaces(expression.Replace(',', '.')));
-
-		private static string RemoveWhiteSpaces(string expression) => new string(expression.Where(c => !char.IsWhiteSpace(c)).ToArray());
+		public List<string> TokenizeExpression(string expression) => SplitToTokens(new MathString(expression).Value);
 
 		private List<string> SplitToTokens(string expression)
 		{
