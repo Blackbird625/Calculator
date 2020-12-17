@@ -3,15 +3,16 @@
 	x:Class="Calculator.Views.CalculatorPage"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:viewModels="clr-namespace:Calculator.ViewModels;assembly=Calculator"
+	xmlns:vm="clr-namespace:Calculator.ViewModels"
 	Title="{Binding Title}">
 
 	<ContentPage.BindingContext>
-		<viewModels:CalculatorViewModel />
+		<vm:CalculatorViewModel />
 	</ContentPage.BindingContext>
 
 	<ContentPage.Resources>
 		<ResourceDictionary>
+			<Color x:Key="Accent">#96d1ff</Color>
 			<Style x:Key="Digit" TargetType="Button">
 				<Setter Property="TextColor" Value="White" />
 				<Setter Property="Background" Value="Black" />
@@ -19,7 +20,7 @@
 			</Style>
 			<Style x:Key="Operation" TargetType="Button">
 				<Setter Property="TextColor" Value="White" />
-				<Setter Property="Background" Value="" />
+				<Setter Property="Background" Value="{StaticResource Accent}" />
 				<Setter Property="FontSize" Value="25" />
 			</Style>
 			<Style x:Key="Brackets" TargetType="Button">
@@ -29,7 +30,7 @@
 			</Style>
 			<Style x:Key="Equals" TargetType="Button">
 				<Setter Property="TextColor" Value="White" />
-				<Setter Property="Background" Value="green" />
+				<Setter Property="Background" Value="Green" />
 				<Setter Property="FontSize" Value="25" />
 			</Style>
 			<Style x:Key="Clear" TargetType="Button">
@@ -48,12 +49,12 @@
 				<Setter Property="FontSize" Value="25" />
 			</Style>
 			<Style x:Key="Expression" TargetType="Label">
-				<Setter Property="FontSize" Value="25" />
+				<Setter Property="FontSize" Value="45" />
 				<Setter Property="HorizontalTextAlignment" Value="End" />
 				<Setter Property="VerticalTextAlignment" Value="End" />
 			</Style>
 			<Style x:Key="EntryValue" TargetType="Label">
-				<Setter Property="FontSize" Value="35" />
+				<Setter Property="FontSize" Value="60" />
 				<Setter Property="HorizontalTextAlignment" Value="End" />
 			</Style>
 		</ResourceDictionary>
@@ -85,14 +86,16 @@
 				Grid.Row="0"
 				Grid.RowSpan="4"
 				Grid.ColumnSpan="4"
-				Style="{StaticResource Expression}" />
+				Style="{StaticResource Expression}"
+				Text="" />
 			<Label
 				x:Name="EntryValue"
 				Grid.Row="4"
 				Grid.RowSpan="2"
 				Grid.Column="0"
 				Grid.ColumnSpan="4"
-				Style="{StaticResource EntryValue}" />
+				Style="{StaticResource EntryValue}"
+				Text="" />
 			<Button
 				Grid.Row="6"
 				Grid.Column="0"
@@ -114,46 +117,55 @@
 			<Button
 				Grid.Row="6"
 				Grid.Column="3"
+				Clicked="Operation_OnClicked"
 				Style="{StaticResource Operation}"
 				Text="/" />
 			<Button
 				Grid.Row="7"
 				Grid.Column="0"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="7" />
 			<Button
 				Grid.Row="7"
 				Grid.Column="1"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="8" />
 			<Button
 				Grid.Row="7"
 				Grid.Column="2"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="9" />
 			<Button
 				Grid.Row="7"
 				Grid.Column="3"
+				Clicked="Operation_OnClicked"
 				Style="{StaticResource Operation}"
 				Text="*" />
 			<Button
 				Grid.Row="8"
 				Grid.Column="0"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="4" />
 			<Button
 				Grid.Row="8"
 				Grid.Column="1"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="5" />
 			<Button
 				Grid.Row="8"
 				Grid.Column="2"
+				Clicked="DigitButton_OnClicked"
 				Style="{StaticResource Digit}"
 				Text="6" />
 			<Button
 				Grid.Row="8"
 				Grid.Column="3"
+				Clicked="Operation_OnClicked"
 				Style="{StaticResource Operation}"
 				Text="-" />
 			<Button

@@ -18,9 +18,12 @@ namespace Calculator.Views
 		{
 			if (sender is Button)
 			{
+				if (EntryValue.Text == string.Empty)
+				{
+					Expression.Text = string.Empty;
+				}
 				EntryValue.Text = string.Empty;
 			}
-
 			// Long press: https://alexdunn.org/2017/12/27/xamarin-tip-xamarin-forms-long-press-effect/
 		}
 
@@ -28,6 +31,11 @@ namespace Calculator.Views
 		{
 			if (sender is Button)
 			{
+				if (EntryValue.Text == string.Empty)
+				{
+					EntryValue.Text = new string(App.DecimalSeparator.ToString());
+					return;
+				}
 				EntryValue.Text = EntryValue.Text[0] == App.DecimalSeparator ? EntryValue.Text[1..] : App.DecimalSeparator + EntryValue.Text;
 			}
 		}

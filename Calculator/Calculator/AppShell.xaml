@@ -3,7 +3,7 @@
 	x:Class="Calculator.AppShell"
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:local="clr-namespace:Calculator.Views"
+	xmlns:views="clr-namespace:Calculator.Views"
 	Title="Calculator">
 
 	<Shell.Resources>
@@ -74,12 +74,12 @@
 			</Style>
 		</ResourceDictionary>
 	</Shell.Resources>
-
+	<FlyoutItem Title="Test" Icon="icon_feed.png">
+		<ShellContent ContentTemplate="{DataTemplate views:CalculatorPage}" Route="CalculatorPage" />
+	</FlyoutItem>
 	<FlyoutItem Title="About" Icon="icon_about.png">
-		<ShellContent ContentTemplate="{DataTemplate local:AboutPage}" Route="AboutPage" />
+		<ShellContent ContentTemplate="{DataTemplate views:AboutPage}" Route="AboutPage" />
 	</FlyoutItem>
-	<FlyoutItem Title="Calculator" Icon="icon_feed.png">
-		<ShellContent ContentTemplate="{DataTemplate local:CalculatorPage}" Route="CalculatorPage" />
-	</FlyoutItem>
+
 
 </Shell>
