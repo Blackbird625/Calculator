@@ -7,7 +7,7 @@ namespace Calculator.Models
 	{
 		public string Value { get; private set; }
 
-		private readonly Dictionary<string, string> _replacePatterns = new()
+		private readonly Dictionary<string, string> _replacePatterns = new Dictionary<string, string>()
 		{
 			{ ",", "." },
 			{ "-(", "(-1)*(" },
